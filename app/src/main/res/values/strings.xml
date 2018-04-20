@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MVVMFramework</string>
+    <string name="top_left">返回</string>
+    <string name="top_right">更多</string>
+</resources>
