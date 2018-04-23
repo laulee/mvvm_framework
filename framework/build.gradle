@@ -32,7 +32,11 @@ dependencies {
     })
     //eventBus
     compile 'org.greenrobot:eventbus:3.0.0'
+    //volley网络请求框架
     compile 'com.mcxiaoke.volley:library:1.0.19'
     compile 'com.alibaba:fastjson:1.2.47'
 //    compile 'com.github.chrisbanes.pulltorefresh:library:2.1.1'
+    //统一的RecyclerAdapter适配器
+    compile 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:2.2.0'
+    compile 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:2.2.0'
 }
