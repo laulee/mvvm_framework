@@ -30,7 +30,8 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     //eventBus
     compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.mcxiaoke.volley:library:1.0.19'
+    compile 'com.alibaba:fastjson:1.2.47'
 }

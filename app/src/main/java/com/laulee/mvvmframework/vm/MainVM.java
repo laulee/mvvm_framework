@@ -1,6 +1,10 @@
 package com.laulee.mvvmframework.vm;
 
+import android.databinding.ObservableField;
+import android.support.v4.app.Fragment;
+
 import com.framework.core.base.BaseVM;
+import com.laulee.mvvmframework.ui.IndexFragment;
 
 /**
  * 作者：Created by Laulee
@@ -8,4 +12,13 @@ import com.framework.core.base.BaseVM;
  */
 
 public class MainVM extends BaseVM {
+
+    public ObservableField<Fragment> fragment = new ObservableField<>();
+
+    public MainVM() {
+    }
+
+    public void showIndexFragment(IndexFragment fragment){
+        this.fragment.set(fragment);
+    }
 }

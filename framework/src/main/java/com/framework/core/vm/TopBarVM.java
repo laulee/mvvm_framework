@@ -90,10 +90,27 @@ public class TopBarVM extends BaseVM {
         this.leftImage.set(drawable);
     }
 
+    /**
+     * 设置topbar左边按钮事件
+     *
+     * @param leftListenter
+     */
     public void setLeftListenter(View.OnClickListener leftListenter) {
         this.leftListenter = leftListenter;
     }
 
+    /**
+     * 设置标题
+     *
+     * @param titleTxt
+     */
+    public void setTitleTxt(String titleTxt) {
+        this.titleTxt.set(titleTxt);
+    }
+
+    /**
+     * 显示webview关闭按钮
+     */
     public void setShowClose() {
         showClose.set(true);
     }
