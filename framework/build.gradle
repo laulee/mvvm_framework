@@ -34,4 +34,5 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile 'com.mcxiaoke.volley:library:1.0.19'
     compile 'com.alibaba:fastjson:1.2.47'
+//    compile 'com.github.chrisbanes.pulltorefresh:library:2.1.1'
 }

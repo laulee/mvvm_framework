@@ -1,4 +1,4 @@
-package com.hzjs.wjs.utils.ssl;
+package com.framework.core.network.ssl;
 
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;

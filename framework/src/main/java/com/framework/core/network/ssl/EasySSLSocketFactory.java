@@ -1,4 +1,4 @@
-package com.hzjs.wjs.utils.ssl;
+package com.framework.core.network.ssl;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.framework.core.manager.AppManager;
 import com.framework.core.network.VolleyUtil;
+import com.framework.core.network.ssl.FakeX509TrustManager;
 
 /**
  * 作者：Created by Laulee
@@ -19,6 +20,8 @@ public class BaseApplication extends Application {
         super.onCreate();
         instance = this;
         AppManager.initConfig();
+        //防止https证书过期
+        FakeX509TrustManager.allowAllSSL();
         VolleyUtil.initConfig(this);
     }
 

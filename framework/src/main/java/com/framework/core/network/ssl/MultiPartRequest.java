@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.hzjs.wjs.utils.ssl;
+package com.framework.core.network.ssl;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
