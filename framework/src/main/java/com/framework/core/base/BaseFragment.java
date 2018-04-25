@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -78,7 +79,7 @@ public abstract class BaseFragment<CVB extends ViewDataBinding> extends Fragment
         isFirstLoad = true;
         if (cvb == null) {
             if (getLayoutId() > 0) {
-                cvb = DataBindingUtil.inflate(inflater, getLayoutId(), container, false);
+                cvb = DataBindingUtil.inflate(getActivity().getLayoutInflater(), getLayoutId(), null, false);
                 setViewModel();
                 isPrepared = true;
                 if (!isHidden()) {

@@ -41,7 +41,9 @@ dependencies {
     compile 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:2.2.0'
     //glide图片加载
     compile 'com.github.bumptech.glide:glide:3.7.0'
-
+    //retrofit框架
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    //添加下来刷新
+    compile 'in.srain.cube:ultra-ptr:1.0.11'
 }

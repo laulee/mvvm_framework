@@ -3,7 +3,7 @@ package com.laulee.mvvmframework.ui;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 
 import com.framework.core.base.BaseTopBarActivity;
 import com.laulee.mvvmframework.R;
@@ -13,7 +13,8 @@ import com.laulee.mvvmframework.vm.MainVM;
 public class MainActivity extends BaseTopBarActivity<ActivityMainBinding> {
 
     private MainVM mainVM;
-    private IndexFragment indexFragment;
+//    private IndexFragment indexFragment;
+    private HomeFragment indexFragment;
 
     @Override
     protected void setViewModel() {
@@ -23,8 +24,8 @@ public class MainActivity extends BaseTopBarActivity<ActivityMainBinding> {
 
     @Override
     protected void initData() {
-        indexFragment = new IndexFragment();
-        mainVM.showIndexFragment(indexFragment);
+        indexFragment = new HomeFragment();
+        showFragment(indexFragment);
     }
 
     @Override
@@ -36,5 +37,16 @@ public class MainActivity extends BaseTopBarActivity<ActivityMainBinding> {
     protected void setTopBar() {
         super.setTopBar();
         baseTopBarVM.topBarVM.setTitleTxt("首页");
+    }
+
+    private void showFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragmentByTag = fragmentManager.findFragmentByTag(fragment.getClass().getName());
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        if (fragmentByTag == null) {
+            transaction.add(R.id.main_content, fragment, fragment.getClass().getName());
+        }
+        transaction.show(fragment);
+        transaction.commit();
     }
 }
