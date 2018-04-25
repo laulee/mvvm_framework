@@ -15,7 +15,7 @@ public class IndexFragment extends BaseFragment<FragmentMainIndexBinding> {
 
     @Override
     protected void setViewModel() {
-        indexVM = new IndexVM();
+        indexVM = new IndexVM(this);
         cvb.setViewModel(indexVM);
     }
 

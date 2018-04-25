@@ -1,5 +1,6 @@
 package com.framework.core.network;
 
+import com.alibaba.fastjson.JSONObject;
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
 import com.android.volley.ParseError;
@@ -7,9 +8,12 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
-import com.framework.core.utils.FastJsonUtils;
+import com.framework.core.utils.GenericsUtils;
+import com.google.gson.Gson;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.Map;
 
 /**
@@ -19,7 +23,7 @@ import java.util.Map;
 
 public class HttpRequest<T> extends Request<T> {
     protected static final String PROTOCOL_CHARSET = "utf-8";
-    private final ICallBack callBack;
+    private ICallBack callBack = null;
     private Class<T> mClass;
     private Map<String, String> mapParams;
 
@@ -43,6 +47,16 @@ public class HttpRequest<T> extends Request<T> {
         this.mapParams = mapParams;
     }
 
+    public HttpRequest(String url, final ICallBack callBack) {
+        super(Method.GET, url, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callBack.onError(error.getMessage());
+            }
+        });
+        mClass = GenericsUtils.getSuperClassGenricType(this);
+    }
+
     /**
      * GET 请求
      *
@@ -50,7 +64,7 @@ public class HttpRequest<T> extends Request<T> {
      * @param tClass
      * @param callBack
      */
-    public HttpRequest(String url, Class<T> tClass, final ICallBack callBack) {
+    public HttpRequest(String url, Object tClass, final ICallBack callBack) {
         super(Method.GET, url, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -58,7 +72,8 @@ public class HttpRequest<T> extends Request<T> {
             }
         });
         this.callBack = callBack;
-        this.mClass = tClass;
+        ParameterizedType type= (ParameterizedType) this.getClass().getGenericSuperclass();
+        this.mClass = (Class) type.getActualTypeArguments()[0];
     }
 
     @Override
@@ -66,7 +81,9 @@ public class HttpRequest<T> extends Request<T> {
         try {
             String jsonString = new String(response.data,
                     HttpHeaderParser.parseCharset(response.headers, PROTOCOL_CHARSET));
-            T result = FastJsonUtils.getBean(jsonString, mClass);
+            JSONObject jsonObject = JSONObject.parseObject(jsonString);
+            Gson gson = new Gson();
+            T result = gson.fromJson(jsonObject.toJSONString(),mClass);
             return Response.success(result,
                     HttpHeaderParser.parseCacheHeaders(response));
         } catch (UnsupportedEncodingException e) {

@@ -13,7 +13,7 @@ import com.framework.core.network.ssl.FakeX509TrustManager;
 
 public class BaseApplication extends Application {
 
-    private BaseApplication instance;
+    private static BaseApplication instance;
 
     @Override
     public void onCreate() {
@@ -25,7 +25,7 @@ public class BaseApplication extends Application {
         VolleyUtil.initConfig(this);
     }
 
-    public BaseApplication getInstance() {
+    public static BaseApplication getInstance() {
         return instance;
     }
 }

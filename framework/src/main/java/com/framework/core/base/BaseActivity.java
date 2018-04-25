@@ -1,6 +1,8 @@
 package com.framework.core.base;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
@@ -157,5 +159,11 @@ public abstract class BaseActivity<CVB extends ViewDataBinding> extends AppCompa
                 timerListener.listener();
             }
         }, 1000, 1000);
+    }
+
+    public void openActivity(Activity context, Class tClass) {
+        Intent intent = new Intent();
+        intent.setClass(context, tClass);
+        context.startActivity(intent);
     }
 }

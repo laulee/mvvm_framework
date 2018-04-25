@@ -39,4 +39,9 @@ dependencies {
     //统一的RecyclerAdapter适配器
     compile 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:2.2.0'
     compile 'me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:2.2.0'
+    //glide图片加载
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
+    compile 'com.squareup.retrofit2:retrofit:2.0.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 }
