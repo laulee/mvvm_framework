@@ -79,7 +79,7 @@ public abstract class BaseFragment<CVB extends ViewDataBinding> extends Fragment
         isFirstLoad = true;
         if (cvb == null) {
             if (getLayoutId() > 0) {
-                cvb = DataBindingUtil.inflate(getActivity().getLayoutInflater(), getLayoutId(), null, false);
+                cvb = DataBindingUtil.inflate(getActivity().getLayoutInflater(), getLayoutId(), container, false);
                 setViewModel();
                 isPrepared = true;
                 if (!isHidden()) {

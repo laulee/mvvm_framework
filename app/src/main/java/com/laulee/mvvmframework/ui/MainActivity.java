@@ -13,8 +13,8 @@ import com.laulee.mvvmframework.vm.MainVM;
 public class MainActivity extends BaseTopBarActivity<ActivityMainBinding> {
 
     private MainVM mainVM;
-//    private IndexFragment indexFragment;
-    private HomeFragment indexFragment;
+    private IndexFragment indexFragment;
+//    private HomeFragment indexFragment;
 
     @Override
     protected void setViewModel() {
@@ -24,7 +24,7 @@ public class MainActivity extends BaseTopBarActivity<ActivityMainBinding> {
 
     @Override
     protected void initData() {
-        indexFragment = new HomeFragment();
+        indexFragment = new IndexFragment();
         showFragment(indexFragment);
     }
 

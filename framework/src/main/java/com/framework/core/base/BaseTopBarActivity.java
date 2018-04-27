@@ -5,7 +5,11 @@ import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.framework.core.R;
 import com.framework.core.databinding.ActivityBaseTopBarBinding;
@@ -27,9 +31,10 @@ public abstract class BaseTopBarActivity<CVB extends ViewDataBinding> extends Ba
         baseTopBarVM = new BaseTopBarVM(this);
         topBarBinding.setViewModel(baseTopBarVM);
         if (getLayoutId() > 0) {
-            cvb = DataBindingUtil.inflate(LayoutInflater.from(this), getLayoutId(), topBarBinding.mainContent, false);
-            topBarBinding.mainContent.removeAllViews();
-            topBarBinding.mainContent.addView(cvb.getRoot());
+            cvb = DataBindingUtil.inflate(LayoutInflater.from(this), getLayoutId(),  topBarBinding.baseMainContent, true);
+            View view = cvb.getRoot();
+            topBarBinding.baseMainContent.removeAllViews();
+            topBarBinding.baseMainContent.addView(view);
             setTopBar();
             setViewModel();
         } else {
