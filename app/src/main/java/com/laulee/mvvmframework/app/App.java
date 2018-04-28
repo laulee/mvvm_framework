@@ -1,6 +1,7 @@
 package com.laulee.mvvmframework.app;
 
 import com.framework.core.app.BaseApplication;
+import com.laulee.mvvmframework.BuildConfig;
 
 /**
  * 作者：Created by Laulee
@@ -12,5 +13,15 @@ public class App extends BaseApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+    }
+
+    @Override
+    public String getServer() {
+        return "http://gank.io";
+    }
+
+    @Override
+    public boolean isDebug() {
+        return BuildConfig.DEBUG;
     }
 }

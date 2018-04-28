@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -102,5 +103,15 @@ public class AppUtils {
             e.printStackTrace();
         }
         return 0;
+    }
+
+
+    /**
+     * 获取Android系统版本
+     *
+     * @return
+     */
+    public static String getSysVersion() {
+        return "android" + Build.VERSION.RELEASE;
     }
 }

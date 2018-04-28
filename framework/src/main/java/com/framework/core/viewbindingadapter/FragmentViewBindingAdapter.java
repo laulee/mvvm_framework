@@ -1,14 +1,11 @@
 package com.framework.core.viewbindingadapter;
 
-import android.app.Activity;
 import android.databinding.BindingAdapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
-
-import com.framework.core.R;
 
 /**
  * 作者：Created by Laulee

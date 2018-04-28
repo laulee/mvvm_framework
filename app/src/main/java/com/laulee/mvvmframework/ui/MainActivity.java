@@ -14,7 +14,6 @@ public class MainActivity extends BaseTopBarActivity<ActivityMainBinding> {
 
     private MainVM mainVM;
     private IndexFragment indexFragment;
-//    private HomeFragment indexFragment;
 
     @Override
     protected void setViewModel() {

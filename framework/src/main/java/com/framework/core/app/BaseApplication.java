@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.framework.core.manager.AppManager;
 import com.framework.core.network.VolleyUtil;
+import com.framework.core.network.retrofit.RetrofitHelper;
 import com.framework.core.network.ssl.FakeX509TrustManager;
 
 /**
@@ -11,7 +12,7 @@ import com.framework.core.network.ssl.FakeX509TrustManager;
  * 时间：2018/4/23.
  */
 
-public class BaseApplication extends Application {
+public abstract class BaseApplication extends Application {
 
     private static BaseApplication instance;
 
@@ -23,9 +24,25 @@ public class BaseApplication extends Application {
         //防止https证书过期
         FakeX509TrustManager.allowAllSSL();
         VolleyUtil.initConfig(this);
+        //初始化retrofit
+        RetrofitHelper.initConfig(this);
     }
 
     public static BaseApplication getInstance() {
         return instance;
     }
+
+    /**
+     * 获取基地址
+     *
+     * @return
+     */
+    public abstract String getServer();
+
+    /**
+     * 是否Debug
+     *
+     * @return
+     */
+    public abstract boolean isDebug();
 }
