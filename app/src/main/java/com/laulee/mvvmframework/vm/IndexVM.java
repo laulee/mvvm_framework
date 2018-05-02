@@ -41,7 +41,7 @@ public class IndexVM extends BaseRecyclerVM {
                 List<GankEntity> gankEntities = response.getResults();
                 if (gankEntities != null && gankEntities.size() > 0) {
                     for (GankEntity gankEntity : gankEntities) {
-                        items.add(new RecyclerItemVM(gankEntity));
+                        items.add(new RecyclerItemVM(fragment.getActivity(),gankEntity));
                     }
                 }
             }

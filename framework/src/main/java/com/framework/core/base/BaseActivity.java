@@ -160,10 +160,4 @@ public abstract class BaseActivity<CVB extends ViewDataBinding> extends AppCompa
             }
         }, 1000, 1000);
     }
-
-    public void openActivity(Activity context, Class tClass) {
-        Intent intent = new Intent();
-        intent.setClass(context, tClass);
-        context.startActivity(intent);
-    }
 }

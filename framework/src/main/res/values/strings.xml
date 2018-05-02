@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">framework</string>
+    <string name="left_title">返回</string>
 </resources>

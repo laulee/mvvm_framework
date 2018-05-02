@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:padding="@dimen/dp_10"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:onClick="@{viewModel.onClick}">
 
         <ImageView
             android:layout_width="@dimen/dp_100"

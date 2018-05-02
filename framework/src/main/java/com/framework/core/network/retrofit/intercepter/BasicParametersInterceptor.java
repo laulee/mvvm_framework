@@ -41,12 +41,15 @@ public class BasicParametersInterceptor implements Interceptor {
 
         Request request = chain.request();
         Request.Builder requestBuilder = request.newBuilder();
+        //GET请求
         if (request.method().equals("GET")) {
 
             HttpUrl newHttpUrl = getHttpUrl(request);
             requestBuilder = request.newBuilder().url(newHttpUrl);
 
-        } else if (request.method().equals("POST")) {
+        }
+        //POST请求
+        else if (request.method().equals("POST")) {
 
             RequestBody requestBody = request.body();
             if (requestBody != null) {
