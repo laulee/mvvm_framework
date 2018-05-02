@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.laulee.mvvmframework.vm.IndexBannerVM"/>
+        <import type="com.youth.banner.BannerConfig"/>
+    </data>
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner_mall"
+        android:layout_width="match_parent"
+        android:layout_height="@{viewModel.displayBannerHeight,default=@dimen/dp_380}"
+        android:fitsSystemWindows="true"
+        android:focusable="true"
+        app:bannerGravity="@{BannerConfig.RIGHT}"
+        app:bannerListBeanX="@{viewModel.bannerListBean}"
+        app:delay_time="5000"
+        app:image_scale_type="fit_xy"
+        app:is_auto_play="true"/>
+</layout>
