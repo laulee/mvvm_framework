@@ -1,4 +1,4 @@
-package com.framework.core.network;
+package com.framework.core.network.volley;
 
 import com.alibaba.fastjson.JSONObject;
 import com.android.volley.AuthFailureError;

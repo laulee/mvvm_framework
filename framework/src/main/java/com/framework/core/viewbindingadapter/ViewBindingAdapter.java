@@ -1,7 +1,14 @@
 package com.framework.core.viewbindingadapter;
 
 import android.databinding.BindingAdapter;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
+import android.view.ViewGroup;
+
+import com.framework.core.R;
+import com.youth.banner.Banner;
+import com.youth.banner.BannerConfig;
 
 /**
  * 作者：Created by Laulee

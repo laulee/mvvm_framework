@@ -17,7 +17,7 @@ public class App extends BaseApplication {
 
     @Override
     public String getServer() {
-        return "http://gank.io";
+        return "https://news-at.zhihu.com";
     }
 
     @Override

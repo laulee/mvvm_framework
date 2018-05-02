@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -19,30 +20,14 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
 
-        <LinearLayout
+        <com.ashokvarma.bottomnavigation.BottomNavigationBar
+            android:id="@+id/bottom_navigation_bar_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_gravity="bottom"
             android:background="@color/orange"
-            android:padding="@dimen/dp_10">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="@color/white"
-                android:gravity="center"
-                android:onClick="@{viewModel.indexOnclick}"
-                android:text="首页" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:onClick="@{viewModel.userOnclick}"
-                android:text="个人" />
-        </LinearLayout>
+            app:bnbMode="mode_fixed"
+            app:bnbActiveColor="@color/orange"
+            app:bnbBackgroundColor="@color/white"/>
     </LinearLayout>
 </layout>

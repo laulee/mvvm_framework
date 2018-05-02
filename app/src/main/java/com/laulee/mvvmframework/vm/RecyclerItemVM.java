@@ -11,6 +11,7 @@ import com.framework.core.ui.WebActivity;
 import com.laulee.mvvmframework.BR;
 import com.laulee.mvvmframework.R;
 import com.laulee.mvvmframework.entity.GankEntity;
+import com.laulee.mvvmframework.entity.ZhihuThemeEntity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,12 +28,12 @@ public class RecyclerItemVM extends BaseVM implements ItemVar {
     public ObservableField<String> image = new ObservableField<>();
 
     private Context context;
-    private GankEntity gankEntity;
+    private ZhihuThemeEntity.StoriesBean gankEntity;
 
-    public RecyclerItemVM(Context context, GankEntity entity) {
+    public RecyclerItemVM(Context context, ZhihuThemeEntity.StoriesBean entity) {
         this.context = context;
         this.gankEntity = entity;
-        this.title.set(entity.getDesc());
+        this.title.set(entity.getTitle());
         if (entity.getImages() != null && entity.getImages().size() > 0) {
             this.image.set(entity.getImages().get(0));
         }
@@ -51,7 +52,7 @@ public class RecyclerItemVM extends BaseVM implements ItemVar {
     public void onClick(View view) {
         Map<String, Object> map = new HashMap<>();
         map.put("title", title.get());
-        map.put("loadUrl", gankEntity.getUrl());
+        map.put("loadUrl", gankEntity.getTitle());
         UiManager.switcher(context, map, WebActivity.class);
     }
 }

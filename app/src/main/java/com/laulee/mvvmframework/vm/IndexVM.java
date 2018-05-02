@@ -10,6 +10,7 @@ import com.framework.core.recycler.BaseRecyclerVM;
 import com.laulee.mvvmframework.api.ApiService;
 import com.laulee.mvvmframework.entity.GankEntity;
 import com.laulee.mvvmframework.entity.GankResponse;
+import com.laulee.mvvmframework.entity.ZhihuThemeEntity;
 
 import java.util.List;
 
@@ -30,25 +31,24 @@ public class IndexVM extends BaseRecyclerVM {
 
     public void getData() {
         ApiService apiService = RetrofitHelper.getService(ApiService.class);
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("name","name");
-
-        Call<GankResponse> gankResponseCall = apiService.getGankData("name");
-        gankResponseCall.enqueue(new RequestCallBack<GankResponse>(fragment.getActivity()) {
+        Call<ZhihuThemeEntity> gankResponseCall = apiService.getGankData();
+        gankResponseCall.enqueue(new RequestCallBack<ZhihuThemeEntity>(fragment.getActivity()) {
 
             @Override
-            public void onSuccess(GankResponse response) {
-                List<GankEntity> gankEntities = response.getResults();
+            public void onSuccess(ZhihuThemeEntity response) {
+                items.clear();
+                List<ZhihuThemeEntity.StoriesBean> gankEntities = response.getStories();
                 if (gankEntities != null && gankEntities.size() > 0) {
-                    for (GankEntity gankEntity : gankEntities) {
-                        items.add(new RecyclerItemVM(fragment.getActivity(),gankEntity));
+                    items.add(new IndexBannerVM(fragment.getActivity(), response.getStories()));
+                    for (ZhihuThemeEntity.StoriesBean storiesBean : gankEntities) {
+                        items.add(new RecyclerItemVM(fragment.getActivity(), storiesBean));
                     }
                 }
             }
 
             @Override
             public void onError(String message) {
-                Log.d("error",message);
+                Log.d("error", message);
             }
         });
     }

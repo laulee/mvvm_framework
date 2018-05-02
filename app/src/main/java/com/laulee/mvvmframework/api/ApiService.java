@@ -1,6 +1,7 @@
 package com.laulee.mvvmframework.api;
 
 import com.laulee.mvvmframework.entity.GankResponse;
+import com.laulee.mvvmframework.entity.ZhihuThemeEntity;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -13,6 +14,14 @@ import retrofit2.http.Query;
 
 public interface ApiService {
 
-    @GET("/api/data/Android/10/1")
-    public Call<GankResponse> getGankData(@Query("name") String object);
+    @GET("/api/4/theme/11")
+    public Call<ZhihuThemeEntity> getGankData();
+
+    //电影日报
+    @GET("/api/4/theme/3")
+    public Call<ZhihuThemeEntity> getMovies();
+
+    //音乐日报
+    @GET("/api/4/theme/7")
+    public Call<ZhihuThemeEntity> getMusic();
 }

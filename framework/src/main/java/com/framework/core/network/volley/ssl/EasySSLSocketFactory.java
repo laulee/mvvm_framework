@@ -1,4 +1,4 @@
-package com.framework.core.network.ssl;
+package com.framework.core.network.volley.ssl;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one

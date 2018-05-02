@@ -1,4 +1,4 @@
-package com.framework.core.network.ssl;
+package com.framework.core.network.volley.ssl;
 
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;

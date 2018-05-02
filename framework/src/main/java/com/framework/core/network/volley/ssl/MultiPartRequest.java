@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.framework.core.network.ssl;
+package com.framework.core.network.volley.ssl;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;

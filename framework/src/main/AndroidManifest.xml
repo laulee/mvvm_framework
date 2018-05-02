@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.framework.core">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -9,5 +10,17 @@
         <activity
             android:name=".ui.WebActivity"
             android:screenOrientation="portrait" />
+
+        <!--文件选择-->
+        <provider
+            android:name=".service.FileChooseProvider"
+            android:authorities="${applicationId}.filechooseprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <!--元数据-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
     </application>
 </manifest>

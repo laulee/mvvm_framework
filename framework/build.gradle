@@ -50,4 +50,10 @@ dependencies {
     }
     //添加下来刷新
     compile 'in.srain.cube:ultra-ptr:1.0.11'
+    //google底部切换tab
+    compile ('com.ashokvarma.android:bottom-navigation-bar:2.0.4',{
+        exclude group: 'com.android.support'
+    })
+    //banner框架
+    compile 'com.youth.banner:banner:1.4.9'
 }
